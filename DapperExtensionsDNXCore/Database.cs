@@ -62,13 +62,7 @@ namespace DapperExtensions
             }
         }
 
-        public bool HasActiveTransaction
-        {
-            get
-            {
-                return _transaction != null;
-            }
-        }
+        public bool HasActiveTransaction => _transaction != null;
 
         public DbConnection Connection { get; private set; }
 
@@ -76,10 +70,7 @@ namespace DapperExtensions
         {
             if (Connection.State != ConnectionState.Closed)
             {
-                if (_transaction != null)
-                {
-                    _transaction.Rollback();
-                }
+                _transaction?.Rollback();
 
                 Connection.Close();
             }

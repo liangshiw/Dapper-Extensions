@@ -29,9 +29,9 @@ namespace DapperExtensions.Sql
                 throw new ArgumentNullException("Parameters");
             }
 
-            var result = string.Format("{0} LIMIT @Offset, @Count", sql);
+            var result = string.Format("{0} LIMIT @Offset, @CountAsync", sql);
             parameters.Add("@Offset", firstResult);
-            parameters.Add("@Count", maxResults);
+            parameters.Add("@CountAsync", maxResults);
             return result;
         }
 
