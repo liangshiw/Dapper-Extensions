@@ -15,6 +15,7 @@
     <PackageProjectUrl>https://github.com/liangshiw/Dapper-Extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/liangshiw/Dapper-Extensions</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
