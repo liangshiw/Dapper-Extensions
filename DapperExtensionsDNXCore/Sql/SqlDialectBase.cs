@@ -24,41 +24,17 @@ namespace DapperExtensions.Sql
 
     public abstract class SqlDialectBase : ISqlDialect
     {
-        public virtual char OpenQuote
-        {
-            get { return '"'; }
-        }
+        public virtual char OpenQuote => '"';
 
-        public virtual char CloseQuote
-        {
-            get { return '"'; }
-        }
+        public virtual char CloseQuote => '"';
 
-        public virtual string BatchSeperator
-        {
-            get { return ";" + Environment.NewLine; }
-        }
+        public virtual string BatchSeperator => ";" + Environment.NewLine;
 
-        public virtual bool SupportsMultipleStatements
-        {
-            get { return true; }
-        }
+        public virtual bool SupportsMultipleStatements => true;
 
-        public virtual char ParameterPrefix
-        {
-            get
-            {
-                return '@';
-            }
-        }
+        public virtual char ParameterPrefix => '@';
 
-        public string EmptyExpression
-        {
-            get
-            {
-                return "1=1";
-            }
-        }
+        public string EmptyExpression => "1=1";
 
         public virtual string GetTableName(string schemaName, string tableName, string alias)
         {
@@ -121,7 +97,7 @@ namespace DapperExtensions.Sql
 
         public virtual string QuoteString(string value)
         {
-            return IsQuoted(value) ? value : string.Format("{0}{1}{2}", OpenQuote, value.Trim(), CloseQuote);
+            return IsQuoted(value) ? value : $"{OpenQuote}{value.Trim()}{CloseQuote}";
         }
 
         public virtual string UnQuoteString(string value)
